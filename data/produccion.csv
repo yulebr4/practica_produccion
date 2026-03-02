@@ -1,0 +1,16 @@
+turno,operador,cantidad_producida,defectos,tiempo_minutos,temperatura_maquina
+Mañana,Op1,320,5,480,65
+Tarde,Op2,290,12,480,72
+Noche,Op3,250,18,480,78
+Mañana,Op1,310,4,480,64
+Tarde,Op2,305,9,480,70
+Noche,Op3,240,22,480,81
+Mañana,Op1,330,3,480,63
+Tarde,Op2,295,11,480,71
+Noche,Op3,260,15,480,76
+Mañana,Op1,325,6,480,66
+Tarde,Op2,280,14,480,73
+Noche,Op3,245,20,480,80
+Mañana,Op1,315,5,480,65
+Tarde,Op2,300,10,480,69
+Noche,Op3,255,17,480,79
