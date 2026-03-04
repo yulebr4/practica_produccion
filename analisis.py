@@ -54,3 +54,32 @@ plt.tight_layout()
 plt.savefig("graficos/histograma_defectos.png")
 plt.show()
 print("Histograma de defectos guardado.")
+
+
+# ============================================================
+# 3. BOXPLOTS - Comparación por turno
+# ============================================================
+
+# Boxplot de defectos por turno
+plt.figure()
+sns.boxplot(data=df, x="turno", y="defectos", palette="Set2",
+            order=["Mañana", "Tarde", "Noche"])
+plt.title("Comparación de Defectos por Turno")
+plt.xlabel("Turno")
+plt.ylabel("Número de Defectos")
+plt.tight_layout()
+plt.savefig("graficos/boxplot_defectos_turno.png")
+plt.show()
+print("Boxplot de defectos por turno guardado.")
+
+# Boxplot de cantidad producida por turno
+plt.figure()
+sns.boxplot(data=df, x="turno", y="cantidad_producida", palette="Set1",
+            order=["Mañana", "Tarde", "Noche"])
+plt.title("Cantidad Producida por Turno")
+plt.xlabel("Turno")
+plt.ylabel("Cantidad Producida")
+plt.tight_layout()
+plt.savefig("graficos/boxplot_cantidad_turno.png")
+plt.show()
+print("Boxplot de cantidad por turno guardado.")
