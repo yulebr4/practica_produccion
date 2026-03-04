@@ -28,3 +28,29 @@ print(df.info())
 
 print("\n=== ESTADÍSTICAS DESCRIPTIVAS ===")
 print(df.describe())
+
+# ============================================================
+# 2. HISTOGRAMAS - Distribución de variables numéricas
+# ============================================================
+
+# Histograma de cantidad producida
+plt.figure()
+plt.hist(df["cantidad_producida"], bins=8, color="steelblue", edgecolor="black")
+plt.title("Distribución de Cantidad Producida por Turno")
+plt.xlabel("Cantidad Producida")
+plt.ylabel("Frecuencia")
+plt.tight_layout()
+plt.savefig("graficos/histograma_cantidad.png")
+plt.show()
+print("Histograma de cantidad guardado.")
+
+# Histograma de defectos
+plt.figure()
+plt.hist(df["defectos"], bins=8, color="salmon", edgecolor="black")
+plt.title("Distribución de Defectos por Turno")
+plt.xlabel("Número de Defectos")
+plt.ylabel("Frecuencia")
+plt.tight_layout()
+plt.savefig("graficos/histograma_defectos.png")
+plt.show()
+print("Histograma de defectos guardado.")
