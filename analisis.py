@@ -143,3 +143,33 @@ plt.tight_layout()
 plt.savefig("graficos/heatmap_correlaciones.png")
 plt.show()
 print("Heatmap de correlaciones guardado.")
+
+
+# ============================================================
+# 6. CONCLUSIONES AUTOMÁTICAS
+# ============================================================
+
+print("\\n" + "="*55)
+print("        CONCLUSIONES DEL ANÁLISIS DE PRODUCCIÓN")
+print("="*55)
+
+
+# Turno con más defectos en promedio
+turno_peor = df.groupby("turno")["defectos"].mean().idxmax()
+promedio_peor = df.groupby("turno")["defectos"].mean().max()
+print(f"\\n Turno con más defectos promedio: {turno_peor} ({promedio_peor:.1f} defectos)")
+
+# Turno más productivo
+turno_mejor = df.groupby("turno")["cantidad_producida"].mean().idxmax()
+promedio_mejor = df.groupby("turno")["cantidad_producida"].mean().max()
+print(f" Turno más productivo: {turno_mejor} ({promedio_mejor:.1f} unidades promedio)")
+
+# Correlación temperatura-defectos
+corr_temp = correlaciones.loc["temperatura_maquina", "defectos"]
+print(f"\\n Correlación temperatura-defectos: {corr_temp:.2f}")
+if corr_temp > 0.5:
+    print("   → Alta correlación positiva: a mayor temperatura, más defectos.")
+
+print("\\n RECOMENDACIÓN: Revisar las condiciones del turno nocturno,")
+print("   especialmente el control de temperatura de las máquinas.")
+print("="*55)
