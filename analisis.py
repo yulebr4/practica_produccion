@@ -119,3 +119,27 @@ for turno, grupo in df.groupby("turno"):
     plt.savefig("graficos/scatter_cantidad_defectos.png")
     plt.show()
     print("Scatter plot de cantidad vs defectos guardado.")
+
+
+# ============================================================
+# 5. ANÁLISIS DE CORRELACIONES
+# ============================================================
+
+# Seleccionar solo columnas numéricas para la correlación
+columnas_numericas = ["cantidad_producida", "defectos", 
+                      "tiempo_minutos", "temperatura_maquina"]
+
+correlaciones = df[columnas_numericas].corr()
+
+print("\\n=== MATRIZ DE CORRELACIÓN ===")
+print(correlaciones)
+
+# Mapa de calor (heatmap) de correlaciones
+plt.figure()
+sns.heatmap(correlaciones, annot=True, cmap="coolwarm", 
+            fmt=".2f", linewidths=0.5)
+plt.title("Mapa de Calor - Correlación entre Variables")
+plt.tight_layout()
+plt.savefig("graficos/heatmap_correlaciones.png")
+plt.show()
+print("Heatmap de correlaciones guardado.")
