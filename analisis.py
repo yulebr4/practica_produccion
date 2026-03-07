@@ -39,7 +39,7 @@ plt.hist(df["cantidad_producida"], bins=8, color="steelblue", edgecolor="black")
 plt.title("Distribución de Cantidad Producida por Turno")
 plt.xlabel("Cantidad Producida")
 plt.ylabel("Frecuencia")
-plt.tight_layout()
+plt.tight_layout() # Ajusta automáticamente los márgenes para que nada quede cortado.
 plt.savefig("graficos/histograma_cantidad.png")
 plt.show()
 print("Histograma de cantidad guardado.")
@@ -67,7 +67,7 @@ sns.boxplot(data=df, x="turno", y="defectos", palette="Set2",
 plt.title("Comparación de Defectos por Turno")
 plt.xlabel("Turno")
 plt.ylabel("Número de Defectos")
-plt.tight_layout()
+plt.tight_layout() 
 plt.savefig("graficos/boxplot_defectos_turno.png")
 plt.show()
 print("Boxplot de defectos por turno guardado.")
@@ -95,30 +95,30 @@ colores = {"Mañana": "blue", "Tarde": "orange", "Noche": "red"}
 for turno, grupo in df.groupby("turno"):
     plt.scatter(grupo["temperatura_maquina"], grupo["defectos"],
                 label=turno, color=colores[turno], s=100, alpha=0.8)
-    
-    plt.title("Temperatura de Máquina vs Defectos (por Turno)")
-    plt.xlabel("Temperatura de Máquina (°C)")
-    plt.ylabel("Número de Defectos")
-    plt.legend(title="Turno")
-    plt.tight_layout()
-    plt.savefig("graficos/scatter_temperatura_defectos.png")
-    plt.show()
-    print("Scatter plot de temperatura vs defectos guardado.")
 
-    # Relación entre cantidad producida y defectos
-    plt.figure()
-    for turno, grupo in df.groupby("turno"):
-        plt.scatter(grupo["cantidad_producida"], grupo["defectos"],
-                    label=turno, color=colores[turno], s=100, alpha=0.8)
-    
-    plt.title("Cantidad Producida vs Defectos (por Turno)")
-    plt.xlabel("Cantidad Producida")
-    plt.ylabel("Número de Defectos")
-    plt.legend(title="Turno")
-    plt.tight_layout()
-    plt.savefig("graficos/scatter_cantidad_defectos.png")
-    plt.show()
-    print("Scatter plot de cantidad vs defectos guardado.")
+plt.title("Temperatura de Máquina vs Defectos (por Turno)")
+plt.xlabel("Temperatura de Máquina (°C)")
+plt.ylabel("Número de Defectos")
+plt.legend(title="Turno")
+plt.tight_layout()
+plt.savefig("graficos/scatter_temperatura_defectos.png")
+plt.show()
+print("Scatter plot de temperatura vs defectos guardado.")
+
+# Relación entre cantidad producida y defectos
+plt.figure()
+for turno, grupo in df.groupby("turno"):
+    plt.scatter(grupo["cantidad_producida"], grupo["defectos"],
+                label=turno, color=colores[turno], s=100, alpha=0.8)
+
+plt.title("Cantidad Producida vs Defectos (por Turno)")
+plt.xlabel("Cantidad Producida")
+plt.ylabel("Número de Defectos")
+plt.legend(title="Turno")
+plt.tight_layout()
+plt.savefig("graficos/scatter_cantidad_defectos.png")
+plt.show()
+print("Scatter plot de cantidad vs defectos guardado.")
 
 
 # ============================================================
